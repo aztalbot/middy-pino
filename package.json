@@ -1,0 +1,20 @@
+{
+  "name": "middy-pino",
+  "type": "module",
+  "version": "0.0.5",
+  "description": "Pino logging middleware for Middy",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["pino", "pino-lambda", "lambda", "middy", "log", "logging", "logger", "debug", "middleware"],
+  "author": "andrewztalbot",
+  "license": "ISC",
+  "dependencies": {
+    "pino": "^8.16.2",
+    "pino-lambda": "^4.4.0"
+  },
+  "devDependencies": {
+    "@middy/core": "^5.1.0"
+  }
+}
