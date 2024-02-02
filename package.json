@@ -1,12 +1,27 @@
 {
   "name": "middy-pino",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Pino logging middleware for Middy",
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.12.0"
+  },
   "main": "index.js",
+  "module": "index.js",
+  "types": "types.d.ts",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "node --test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aztalbot/middy-pino.git",
+    "directory": "."
+  },
+  "homepage": "https://github.com/aztalbot/middy-pino#readme",
   "keywords": ["pino", "pino-lambda", "lambda", "middy", "log", "logging", "logger", "debug", "middleware"],
   "author": "andrewztalbot",
   "license": "ISC",
