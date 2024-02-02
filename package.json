@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/aztalbot/middy-pino#readme",
   "keywords": ["pino", "pino-lambda", "lambda", "middy", "log", "logging", "logger", "debug", "middleware"],
-  "author": "andrewztalbot",
-  "license": "ISC",
+  "author": "Andrew Talbot",
+  "license": "MIT",
   "dependencies": {
     "pino": "^8.16.2",
     "pino-lambda": "^4.4.0"
