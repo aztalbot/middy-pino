@@ -1,35 +1,49 @@
 {
   "name": "middy-pino",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Pino logging middleware for Middy",
-  "packageManager": "pnpm@8.15.0",
-  "engines": {
-    "node": ">=18.12.0"
-  },
   "main": "index.js",
   "module": "index.js",
   "types": "types.d.ts",
+  "packageManager": "pnpm@8.15.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "files": [
     "index.js"
   ],
-  "scripts": {
-    "test": "node --test"
-  },
+  "homepage": "https://github.com/aztalbot/middy-pino#readme",
+  "author": "Andrew Talbot",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aztalbot/middy-pino.git",
     "directory": "."
   },
-  "homepage": "https://github.com/aztalbot/middy-pino#readme",
-  "keywords": ["pino", "pino-lambda", "lambda", "middy", "log", "logging", "logger", "debug", "middleware"],
-  "author": "Andrew Talbot",
-  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  },
   "dependencies": {
     "pino": "^8.16.2",
     "pino-lambda": "^4.4.0"
   },
   "devDependencies": {
     "@middy/core": "^5.1.0"
-  }
+  },
+  "keywords": [
+    "pino",
+    "pino-lambda",
+    "lambda",
+    "middy",
+    "log",
+    "logging",
+    "logger",
+    "debug",
+    "middleware",
+    "aws",
+    "nodejs",
+    "cloudwatch",
+    "debug"
+  ]
 }

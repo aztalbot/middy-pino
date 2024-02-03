@@ -46,58 +46,20 @@ export function createLogger(options) {
 }
 
 /**
- * # Middy Pino Logging Middleware
- * 
- * Integrates the pino logging library with Middy. Features include:
- *     - Cloudwatch log formatting
- *     - Captures tracking ids in each log, including request ID and xray tracing ID
- *     - Enables debug log sampling via `debugRate` option, or MIDDY_PINO_DEBUG_RATE environment variable
- *     - Adds the logger to the request context, under `context.log` by default
- * 
- * ## Example Usage
- * 
- * ### Adding the Middleware
- * 
+ * @description Middy Pino Logging Middleware, see {@link https://github.com/aztalbot/middy-pino#readme}
+ * @example
  * ```js
  * import middy from '@middy/core';
+ * import createLoggingMiddleware from 'middy-pino';
+ * 
  * const handler = middy()
  *  .use(createLoggingMiddleware({ name: 'my-service-name' }))
  *  .handler(async (event, context) => {
  *      context.log.info('handling event');
  *  });
  * ```
- * 
- * ### Bring Your Own Pino
- * 
- * ```js
- * import middy from '@middy/core';
- * import pino from 'pino';
- * import { pinoLambdaDestination } from 'pino-lambda';
- * 
- * // you must still use pino-lambda destination
- * const logger = pino({ name: 'my-service-name' }, pinoLambdaDestination())
- * 
- * const handler = middy()
- *  .use(createLoggingMiddleware({ logger }))
- *  .handler(async (event, context) => {
- *      context.log.info('handling event');
- *  });
- * ```
- * 
- * ### Sample Debug Logs
- * 
- * ```js
- * import middy from '@middy/core';
- * const handler = middy()
- *  // debug logs will appear on roughly half of all requests
- *  .use(createLoggingMiddleware({ name: 'my-service-name', debugRate: 0.5 }))
- *  .handler(async (event, context) => {
- *      context.log.info('handling event');
- *  });
- * ```
- * 
  * @param {import('./types').LoggingMiddlewareOptions} logger 
- * @returns {import('@middy/core').MiddlewareObj<unknown, unknown, Error, import('aws-lambda').Context & { log: import('pino').Logger }}}
+ * @returns {import('./types').PinoMiddleware} middy middleware object
  */
 function createLoggingMiddleware({
     logger,
@@ -117,6 +79,7 @@ function createLoggingMiddleware({
 
     const withRequest = lambdaRequestTracker(trackerOptions);
 
+    /** @type {import('@middy/core').MiddlewareObj["before"]} */
     const before = ({ event, context }) => {
         withRequest(event, context);
         log.level = isDebugDisabled && shouldDebug(debugRate) ? debugLabel : originalLevel;;
