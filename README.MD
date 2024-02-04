@@ -63,7 +63,8 @@ export functionDoSomething() {
 
 // index.js
 import middy from '@middy/core';
-import logger from './logger.js'
+import createLoggingMiddleware from "middy-pino";
+import logger from './logger.js';
 
 const handler = middy()
     .use(createLoggingMiddleware({ logger }))
@@ -76,6 +77,8 @@ const handler = middy()
 
 ```js
 import middy from '@middy/core';
+import createLoggingMiddleware from "middy-pino";
+
 const handler = middy()
     // debug logs will appear on roughly half of all requests
     .use(createLoggingMiddleware({
@@ -97,6 +100,8 @@ const handler = middy()
 
 ```js
 import middy from '@middy/core';
+import createLoggingMiddleware from "middy-pino";
+
 const handler = middy()
     // debug logs will appear on roughly half of all requests
     // below is equivalent to setting MIDDY_PINO_DEBUG_RATE environment variable to '0.5'
